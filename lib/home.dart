@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
       ),
       drawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.zero,
+          //  padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
               child: Text('Events'),
@@ -22,17 +22,30 @@ class HomePage extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: Text('All events'),
+              title: Text(
+                'All events',
+                style: new TextStyle(fontSize: 18.0),
+              ),
+              leading: new Icon(
+                Icons.event,
+                size: 25.0,
+              ),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => AllEvents()));
+                  Navigator.pop(context);
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AllEvents()));
               },
             ),
             ListTile(
-              title: Text('Upcoming events'),
+              title:
+                  Text('Upcoming events', style: new TextStyle(fontSize: 16.0)),
+              leading: new Icon(Icons.event_available, size: 25.0),
               onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => UpcomingEvents()));
+                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => UpcomingEvents()));
               },
             ),
           ],

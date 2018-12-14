@@ -37,10 +37,8 @@ class UpcomingEvents extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppBar(
           title: Text('Upcoming events'),
         ),
-      ),
       body: Center(
         child: Text('Upcoming evenst'),
       ),
