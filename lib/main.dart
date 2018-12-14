@@ -3,25 +3,22 @@ import './login.dart';
 
 void main() => runApp(MainPage());
 
-class MainPage extends StatelessWidget{
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primarySwatch: Colors.blue
-      ),
+      theme: ThemeData(primarySwatch: Colors.blue),
       home: Scaffold(
           appBar: AppBar(
             title: Text('Login'),
           ),
-          body:LoginPage()
-      ),
+          body: LoginPage()),
     );
   }
 }
 
-class AllEvents extends StatelessWidget{
+class AllEvents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +32,7 @@ class AllEvents extends StatelessWidget{
   }
 }
 
-class UpcomingEvents extends StatelessWidget{
+class UpcomingEvents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
