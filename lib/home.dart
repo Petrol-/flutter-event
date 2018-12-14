@@ -49,6 +49,17 @@ class HomePage extends StatelessWidget {
                           builder: (context) => UpcomingEvents()));
               },
             ),
+            ListTile(
+              title:
+                  Text('Logout', style: new TextStyle(fontSize: 16.0)),
+              leading: new Icon(Icons.local_mall, size: 25.0),
+              onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => MainPage()));
+              },
+            ),
           ],
         ),
       ),
