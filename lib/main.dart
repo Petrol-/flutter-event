@@ -31,3 +31,4 @@ class UpcomingEvents extends StatelessWidget {
     );
   }
 }
+

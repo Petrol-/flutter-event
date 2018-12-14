@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import './event_detail.dart';
 
 final _rowHeight = 100.0;
 final _borderRadius = BorderRadius.circular(_rowHeight / 2);
@@ -38,7 +38,9 @@ class Event extends StatelessWidget {
           highlightColor: Colors.blue[300],
           splashColor: Colors.blue[300],
           onTap: () {
-            print('I was tapped!');
+           Navigator.push(context, 
+           MaterialPageRoute(
+                                  builder: (context) => EventDetail(event: this,)));
           },
           child: Padding(
             padding: EdgeInsets.all(5.0),
