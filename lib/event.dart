@@ -4,10 +4,7 @@ import './event_detail.dart';
 final _rowHeight = 100.0;
 final _borderRadius = BorderRadius.circular(_rowHeight / 2);
 
-enum EventSate{
-  done,
-  notStarted
-}
+enum EventSate { done, notStarted }
 
 class Event extends StatelessWidget {
   final String title;
@@ -32,15 +29,19 @@ class Event extends StatelessWidget {
     return Material(
       color: Colors.transparent,
       child: Container(
+        decoration: new BoxDecoration(border: new Border.all(color: Colors.grey[500])),
         height: _rowHeight,
         child: InkWell(
           borderRadius: _borderRadius,
           highlightColor: Colors.blue[300],
           splashColor: Colors.blue[300],
           onTap: () {
-           Navigator.push(context, 
-           MaterialPageRoute(
-                                  builder: (context) => EventDetail(event: this,)));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => EventDetail(
+                          event: this,
+                        )));
           },
           child: Padding(
             padding: EdgeInsets.all(5.0),

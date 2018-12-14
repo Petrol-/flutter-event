@@ -73,12 +73,10 @@ class LoginForm extends State<LoginPage> {
                       minWidth: 200.0,
                       height: 42.0,
                       onPressed: () {
-                        // Validate will return true if the form is valid, or false if
-                        // the form is invalid.
+                       
                         if ((_formKey.currentState.validate()) &&
                             ((usernameConttroler.text == "test") &&
                                 ((passwordConttroler.text == "010203")))) {
-                          // If the form is valid, we want to show a Snackbar
                           Scaffold.of(context).showSnackBar(
                               SnackBar(content: Text('You have logged')));
 
