@@ -10,7 +10,13 @@ class HomePage extends StatelessWidget {
         title: Text('Home Page'),
       ),
       body: Center(
-        child: Text('My home page'),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Center(child: Text('My home page')),
+          ],
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -32,9 +38,9 @@ class HomePage extends StatelessWidget {
                 size: 25.0,
               ),
               onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => AllEvents()));
+                Navigator.pop(context); //TODO Why pop then push ?
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => AllEvents()));
               },
             ),
             ListTile(
@@ -42,22 +48,17 @@ class HomePage extends StatelessWidget {
                   Text('Upcoming events', style: new TextStyle(fontSize: 16.0)),
               leading: new Icon(Icons.event_available, size: 25.0),
               onTap: () {
-                  Navigator.pop(context);
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => UpcomingEvents()));
+                Navigator.pop(context);
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => UpcomingEvents()));
               },
             ),
             ListTile(
-              title:
-                  Text('Logout', style: new TextStyle(fontSize: 16.0)),
+              title: Text('Logout', style: new TextStyle(fontSize: 16.0)),
               leading: new Icon(Icons.local_mall, size: 25.0),
               onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => MainPage()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => MainPage()));
               },
             ),
           ],

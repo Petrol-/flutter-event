@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_event/validation/login_form_validtion.dart';
 import './home.dart';
 
 class LoginPage extends StatefulWidget {
@@ -12,9 +13,10 @@ class LoginForm extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final usernameConttroler = TextEditingController();
   final passwordConttroler = TextEditingController();
-
+  BuildContext _context;
   @override
   Widget build(BuildContext context) {
+    this._context = context;
     return Form(
       key: _formKey,
       child: Container(
@@ -36,11 +38,7 @@ class LoginForm extends State<LoginPage> {
                           borderRadius: BorderRadius.circular(32.0)),
                     ),
                     controller: usernameConttroler,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter your username';
-                      }
-                    },
+                    validator: LoginFormValidation.validateUsername,
                   ),
                 ),
                 Padding(
@@ -56,36 +54,19 @@ class LoginForm extends State<LoginPage> {
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(32.0)),
                     ),
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return 'Please enter your password';
-                      }
-                    },
+                    validator: LoginFormValidation.validatePassword,
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 16.0),
                   child: Material(
-                    borderRadius: BorderRadius.circular(30.0),
-                    shadowColor: Colors.lightBlueAccent.shade400,
-                    elevation: 5.0,
+                    // borderRadius: BorderRadius.circular(30.0),
+                    // shadowColor: Colors.lightGreen.shade400,
+                    // elevation: 5.0,
                     child: MaterialButton(
                       minWidth: 200.0,
                       height: 42.0,
-                      onPressed: () {
-                       
-                        if ((_formKey.currentState.validate()) &&
-                            ((usernameConttroler.text == "test") &&
-                                ((passwordConttroler.text == "010203")))) {
-                          Scaffold.of(context).showSnackBar(
-                              SnackBar(content: Text('You have logged')));
-
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()));
-                        }
-                      },
+                      onPressed: _login,
                       color: Colors.lightBlueAccent,
                       child:
                           Text('Log In', style: TextStyle(color: Colors.white)),
@@ -98,5 +79,17 @@ class LoginForm extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  void _login() {
+    if ((_formKey.currentState.validate()) &&
+        ((usernameConttroler.text == "test") &&
+            ((passwordConttroler.text == "010203")))) {
+      Scaffold.of(_context)
+          .showSnackBar(SnackBar(content: Text('You have logged')));
+
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    }
   }
 }
