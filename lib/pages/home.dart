@@ -50,10 +50,12 @@ class HomePage extends StatelessWidget {
                       fontSize: 16),
                 )),
             Expanded(
-              child: ListView(
+              child: ListView.builder(
                 shrinkWrap: true,
                 padding: const EdgeInsets.all(8),
-                children: _eventList,
+                itemCount: _eventList.length,
+                itemBuilder: (BuildContext context, int index) => _buildCard(context,index),
+                // children: _eventList,
               ),
             )
           ],
@@ -104,6 +106,16 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildCard(BuildContext context, int index) {
+    return Card(
+      elevation: 8.0,
+      margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
+      child: Container(
+        // decoration: BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+        child: _eventList[index],)
     );
   }
 }
