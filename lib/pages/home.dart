@@ -1,26 +1,66 @@
 import 'package:flutter/material.dart';
-import './main.dart';
-import './all_events.dart';
+import 'package:flutter_event/main.dart';
+import 'package:flutter_event/pages/all_events.dart';
+import 'package:flutter_event/pages/upcoming_events.dart';
+import 'package:flutter_event/widgets/event.dart';
+import 'package:flutter_event/widgets/home_carousel.dart';
+
+final List<Event> _eventList = new List<Event>();
+
+void loadDate() {
+  _eventList.clear();
+  _eventList.add(new Event(
+      title: 'Flutter',
+      state: EventSate.done,
+      description: "Initiation à flutter",
+      iconLocation: Icons.event));
+  _eventList.add(new Event(
+      title: '.NET Core',
+      state: EventSate.notStarted,
+      description: ".NET Core notions avancées",
+      iconLocation: Icons.event));
+  _eventList.add(new Event(
+      title: 'Angular',
+      state: EventSate.notStarted,
+      description: "les nouveautées de angular 7",
+      iconLocation: Icons.event));
+}
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    loadDate();
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Page'),
       ),
-      body: Center(
+      body: Container(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Center(child: Text('My home page')),
+            HomeCarousel(),
+            Container(
+                margin: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                child: Text(
+                  'My upcoming events:',
+                  style: TextStyle(
+                      // color: Theme.of(context).accentColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16),
+                )),
+            Expanded(
+              child: ListView(
+                shrinkWrap: true,
+                padding: const EdgeInsets.all(8),
+                children: _eventList,
+              ),
+            )
           ],
         ),
       ),
       drawer: Drawer(
         child: ListView(
-          //  padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
               child: Text('Events'),

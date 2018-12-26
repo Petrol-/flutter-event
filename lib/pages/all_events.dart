@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import './event.dart';
+import 'package:flutter_event/widgets/event.dart';
 
 
 final List<Event> _eventList = new List<Event>();

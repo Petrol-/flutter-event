@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './event.dart';
+import 'package:flutter_event/widgets/event.dart';
 
 class EventDetail extends StatelessWidget {
   final Event event;
