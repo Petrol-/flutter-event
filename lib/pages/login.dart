@@ -17,63 +17,76 @@ class LoginForm extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     this._context = context;
-    return Form(
-      key: _formKey,
-      child: Container(
+    return Center(
+      child: Form(
+        key: _formKey,
         child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(60.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    autofocus: false,
-                    decoration: InputDecoration(
-                      hintText: 'Username',
-                      contentPadding:
-                          EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)),
+          child: Container(
+            width: 300,
+            height: 300,
+            child: Card(
+              // color: Colors.blue,
+              elevation: 8.0,
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text("Login",
+                      style: Theme.of(context).textTheme.headline,),
                     ),
-                    controller: usernameConttroler,
-                    validator: LoginFormValidation.validateUsername,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextFormField(
-                    controller: passwordConttroler,
-                    autofocus: false,
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      hintText: 'Password',
-                      contentPadding:
-                          EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(32.0)),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        autofocus: false,
+                        decoration: InputDecoration(
+                          hintText: 'Username',
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32.0)),
+                        ),
+                        controller: usernameConttroler,
+                        validator: LoginFormValidation.validateUsername,
+                      ),
                     ),
-                    validator: LoginFormValidation.validatePassword,
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                  child: Material(
-                    // borderRadius: BorderRadius.circular(30.0),
-                    // shadowColor: Colors.lightGreen.shade400,
-                    // elevation: 5.0,
-                    child: MaterialButton(
-                      minWidth: 200.0,
-                      height: 42.0,
-                      onPressed: _login,
-                      color: Colors.lightBlueAccent,
-                      child:
-                          Text('Log In', style: TextStyle(color: Colors.white)),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextFormField(
+                        controller: passwordConttroler,
+                        autofocus: false,
+                        obscureText: true,
+                        decoration: InputDecoration(
+                          hintText: 'Password',
+                          contentPadding:
+                              EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(32.0)),
+                        ),
+                        validator: LoginFormValidation.validatePassword,
+                      ),
                     ),
-                  ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                      child: Material(
+                        // borderRadius: BorderRadius.circular(30.0),
+                        // shadowColor: Colors.lightGreen.shade400,
+                        // elevation: 5.0,
+                        child: MaterialButton(
+                          minWidth: 200.0,
+                          height: 42.0,
+                          onPressed: _login,
+                          color: Colors.lightBlueAccent,
+                          child: Text('Log In',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
@@ -82,12 +95,12 @@ class LoginForm extends State<LoginPage> {
   }
 
   void _login() {
-    if ((_formKey.currentState.validate()) 
-    // &&
+    if ((_formKey.currentState.validate())
+        // &&
         // ((usernameConttroler.text == "test") &&
         //     ((passwordConttroler.text == "010203"))
         //     )
-            ) {
+        ) {
       Scaffold.of(_context)
           .showSnackBar(SnackBar(content: Text('You have logged')));
 
