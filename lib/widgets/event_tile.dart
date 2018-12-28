@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_event/pages/event_detail.dart';
 
-final _rowHeight = 70.0;
+// final _rowHeight = 70.0;
 // final _borderRadius = BorderRadius.circular(_rowHeight / 2);
 
 enum EventSate { done, notStarted }
 
-class Event extends StatelessWidget {
+class EventTile extends StatelessWidget {
   final String title;
   final EventSate state;
   final String description;
   final IconData iconLocation;
 
-  const Event({
+  const EventTile({
     Key key,
     @required this.title,
     @required this.state,

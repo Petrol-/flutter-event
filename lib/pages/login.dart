@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_event/services/event_service.dart';
 import 'package:flutter_event/validation/login_form_validtion.dart';
 import './home.dart';
 
@@ -13,10 +14,23 @@ class LoginForm extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   final usernameConttroler = TextEditingController();
   final passwordConttroler = TextEditingController();
+  final _eventService = new EventService();
+
   BuildContext _context;
+
+  @override
+  void initState()  {
+    _loadEvents();
+    super.initState();
+  }
+
+void _loadEvents() async {
+await _eventService.getAll(); 
+}
   @override
   Widget build(BuildContext context) {
     this._context = context;
+
     return Center(
       child: Form(
         key: _formKey,
@@ -34,8 +48,10 @@ class LoginForm extends State<LoginPage> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text("Login",
-                      style: Theme.of(context).textTheme.headline,),
+                      child: Text(
+                        "Login",
+                        style: Theme.of(context).textTheme.headline,
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(8.0),

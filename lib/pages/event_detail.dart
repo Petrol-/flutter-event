@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_event/widgets/event.dart';
+import 'package:flutter_event/widgets/event_tile.dart';
 
 class EventDetail extends StatelessWidget {
-  final Event event;
+  final EventTile event;
 
   EventDetail({Key key, @required this.event}) : super(key: key);
 

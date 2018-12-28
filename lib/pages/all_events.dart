@@ -1,24 +1,24 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_event/widgets/event.dart';
+import 'package:flutter_event/widgets/event_tile.dart';
 
 
-final List<Event> _eventList = new List<Event>();
+final List<EventTile> _eventList = new List<EventTile>();
 
 
 void loadDate() {
   _eventList.clear();
-  _eventList.add(new Event(
+  _eventList.add(new EventTile(
       title: 'Flutter',
       state: EventSate.done,
       description: "Initiation à flutter",
       iconLocation: Icons.event));
-  _eventList.add(new Event(
+  _eventList.add(new EventTile(
       title: '.NET Core',
       state: EventSate.notStarted,
       description: ".NET Core notions avancées",
       iconLocation: Icons.event));
-  _eventList.add(new Event(
+  _eventList.add(new EventTile(
       title: 'Angular',
       state: EventSate.notStarted,
       description: "les nouveautées de angular 7",
