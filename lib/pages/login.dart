@@ -45,9 +45,7 @@ class LoginForm extends State<LoginPage> {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
               child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.1)
-                ),
+                decoration: BoxDecoration(color: Colors.black.withOpacity(0.1)),
               ),
             )),
         Center(
@@ -56,7 +54,7 @@ class LoginForm extends State<LoginPage> {
             child: Center(
               child: Container(
                 width: 300,
-                height: 300,
+                height: 350,
                 child: Card(
                   // color: Colors.blue,
                   elevation: 8.0,
@@ -66,7 +64,7 @@ class LoginForm extends State<LoginPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: const EdgeInsets.fromLTRB(8, 8, 8, 24),
                           child: Text(
                             "Login",
                             style: Theme.of(context).textTheme.headline,
@@ -77,12 +75,14 @@ class LoginForm extends State<LoginPage> {
                           child: TextFormField(
                             autofocus: false,
                             decoration: InputDecoration(
-                              hintText: 'Username',
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0)),
-                            ),
+                                hintText: 'Enter username',
+                                labelText: "Username",
+                                border: OutlineInputBorder(),
+                                // contentPadding:
+                                //     EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                                // border: OutlineInputBorder(
+                                //     borderRadius: BorderRadius.circular(32.0)),
+                                ),
                             controller: usernameConttroler,
                             validator: LoginFormValidation.validateUsername,
                           ),
@@ -94,17 +94,19 @@ class LoginForm extends State<LoginPage> {
                             autofocus: false,
                             obscureText: true,
                             decoration: InputDecoration(
-                              hintText: 'Password',
-                              contentPadding:
-                                  EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(32.0)),
+                              hintText: 'Enter password',
+                              labelText: "Pasword",
+                              border: OutlineInputBorder()
+                              // contentPadding:
+                              //     EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                              // border: OutlineInputBorder(
+                              //     borderRadius: BorderRadius.circular(32.0)),
                             ),
                             validator: LoginFormValidation.validatePassword,
                           ),
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: 16.0),
+                          padding: EdgeInsets.only(top: 16),
                           child: Material(
                             // borderRadius: BorderRadius.circular(30.0),
                             // shadowColor: Colors.lightGreen.shade400,
